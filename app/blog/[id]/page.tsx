@@ -1,3 +1,4 @@
+import { getPostById } from "@/services/getPosts";
 import { Metadata } from "next";
 
 type Props = {
@@ -9,12 +10,15 @@ type Props = {
 export async function generateMetadata({
   params: { id },
 }: Props): Promise<Metadata> {
+  const post = await getPostById(id)
   return {
-    title: `Article ${id}`,
-    description: `Article ${id}`,
+    title: post.title,
+    description: post.title
   };
 }
 
-export default function page({ params: { id } }: Props) {
-  return <h1>Post page {id}</h1>;
+export default async function page({ params: { id } }: Props) {
+    const post = await getPostById(id);
+  return <><h1>{post.title}</h1>
+    <p>{post.body}</p></>
 }

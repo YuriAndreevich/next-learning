@@ -1,5 +1,5 @@
 import React from "react";
 
-export function page() {
-  return <div>page</div>;
+export default function page() {
+  return <div>About page</div>;
 }
