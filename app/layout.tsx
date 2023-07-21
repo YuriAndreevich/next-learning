@@ -1,10 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next App",
@@ -20,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className=''>
         <Header />
-        <main className="mx-auto max-w-[1200px] h-[calc(100vh-112px)] bg-[#cecece]">
+        <main className="mx-auto max-w-[1200px] h-[calc(100%-112px)] bg-[#cecece]">
         {children}
         </main>
         <Footer />
